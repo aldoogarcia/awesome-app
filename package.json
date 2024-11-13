@@ -1,0 +1,24 @@
+{
+  "name": "awasome-app-2024",
+  "version": "0.0.0",
+  "description": "proyecto de DWPCI",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldoogarcia/awesome-app.git"
+  },
+  "keywords": [
+    "Express",
+    "ITGAM",
+    "JS"
+  ],
+  "author": "@aldoogarcia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aldoogarcia/awesome-app/issues"
+  },
+  "homepage": "https://github.com/aldoogarcia/awesome-app#readme"
+}
