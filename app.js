@@ -8,6 +8,9 @@ import { log } from 'console';
 // que basicamente es un middleware
 const app = express();
 
+// Se registra el middleware del body-parser
+app.use(express.urlencoded({extended: true}));
+
 // Ruta about
 // GET /about
 app.use('/about',(req, res)=>{
@@ -20,7 +23,7 @@ app.use('/about',(req, res)=>{
 });
 
 // GET '/add-product'
-app.use('/add-product', (req, res, next) => {
+app.get('/add-product', (req, res, next) => {
   // Si la petición es post pasamos el siguiente
   // Middleware
   if(req.method === "POST") return next();
@@ -36,13 +39,11 @@ app.use('/add-product', (req, res, next) => {
 });
 
 // POST '/add-product'
-app.use('/add-product', (req, res)=>{
+app.post('/add-product', (req, res)=>{
   // Realizaremos la extracción de
   // parametros dentro de la peticion
-  for(const prop in req){
-    console.log(`Prop: ${prop}`);
-  }
-  return res.redirect('/');
+  console.log(req.body);
+  res.redirect('/');
 });
 
 // Ruta Raíz

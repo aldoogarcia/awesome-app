@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/aldoogarcia/awesome-app.git"
   },
-"devDependencies": {
+  "devDependencies": {
     "nodemon": "^2.0.22"
   },
   "keywords": [
@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/aldoogarcia/awesome-app#readme",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "express": "^4.21.1"
   }
 }
