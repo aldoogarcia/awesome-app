@@ -1,34 +1,32 @@
-// Importando Express
 import express from 'express';
 import httpStatus from 'http-status';
-
-// Importando el enrutador
+import path from 'path';
 import adminRouter from './routes/admin.route.js';
 import shopRouter from './routes/shop.route.js';
 
-// Creando la instancia de express
-// que basicamente es un middleware
+// Define el directorio raíz del proyecto
+const ROOT_DIR = path.resolve();
+
 const app = express();
 
-// Se registra el middleware del body-parser
+// Middleware para body-parser
 app.use(express.urlencoded({ extended: true }));
 
-// Se agrega ruta de administrador
+// Agrega rutas de administrador y tienda
 app.use('/admin', adminRouter);
-// Se agrega ruta shop
 app.use(shopRouter);
 
-// Registrando el middleware para el error
-// 404
+// Middleware para manejar el error 404
 app.use((req, res, next) => {
-  res.status(httpStatus.NOT_FOUND)
-  res.sendFile(path.resolve('views','404.html'))
+  res.status(httpStatus.NOT_FOUND);
+  res.sendFile(path.join(ROOT_DIR, 'views', '404.html'));
 });
-// Definiendo puertos
-const port = 3000;
-const ip = "0.0.0.0"
 
-// Arrancando el servidor
+// Definición de puertos y dirección IP
+const port = 3000;
+const ip = '0.0.0.0';
+
+// Arranca el servidor
 app.listen(port, ip, () => {
   console.log(`🤖 Sirviendo en http://localhost:${port}`);
 });
