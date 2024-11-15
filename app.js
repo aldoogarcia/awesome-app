@@ -1,7 +1,6 @@
 // Importando Express
 import express from 'express';
 import httpStatus from 'http-status';
-import path from 'path';
 
 // Importando el enrutador
 import adminRouter from './routes/admin.route.js';
@@ -15,16 +14,16 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 // Se agrega ruta de administrador
-app.use(adminRouter);
+app.use('/admin', adminRouter);
 // Se agrega ruta shop
 app.use(shopRouter);
+
 // Registrando el middleware para el error
 // 404
 app.use((req, res, next) => {
   res.status(httpStatus.NOT_FOUND)
   res.sendFile(path.resolve('views','404.html'))
 });
-
 // Definiendo puertos
 const port = 3000;
 const ip = "0.0.0.0"
