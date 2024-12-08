@@ -1,12 +1,11 @@
 {
-  "name": "awasome-app-2024",
+  "name": "awesome-app",
   "version": "0.0.0",
-  "description": "proyecto de DWPCI",
+  "type": "module",
   "main": "app.js",
   "scripts": {
     "start": "node ./app.js",
-    "dev": "nodemon ./app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./app.js"
   },
   "repository": {
     "type": "git",
