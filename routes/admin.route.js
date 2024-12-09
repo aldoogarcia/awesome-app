@@ -7,7 +7,6 @@ import { ROOT_DIR } from '../helpers/paths.js';
 // Creando una instancia del enrutador de express
 const router = Router();
 
-// GET /add-product
 // Datos en memoria volatil
 export const products = [];
 
@@ -17,16 +16,12 @@ router.get('/add-product', (req, res, next) => {
   console.log("📢 Sirviendo formulario...");
   res.render('add-product', {
     addProduct: `active`, 
-    viewStyle: '/css/product.css',
+    viewStyle: '/css/add-product.css',
     docTitle:"Add Product"});
 });
 
-// POST /add-product
 // POST /admin/add-product
 router.post('/add-product', (req, res) => {
-  // Realizaremos la extracción de
-  // parametros dentro de la peticion
-  console.log(req.body);
   // Realizaremos la desestructuracion de
   // "name" de la petición
   const { title } = req.body;
