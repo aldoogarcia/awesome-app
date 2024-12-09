@@ -1,6 +1,7 @@
 // Importando Express
 import express from 'express';
 import httpStatus from 'http-status';
+import { handle404, handleGenericError } from './controllers/httpError.controller.js';
 
 // Template Engine
 import { engine } from 'express-handlebars';
@@ -46,12 +47,11 @@ app.use('/admin', adminRouter);
 // Se agrega ruta shop
 app.use(shopRouter);
 
-// Registrando el middleware para el error
-// 404
-app.use((req, res, next) => {
-  res.status(httpStatus.NOT_FOUND)
-  .sendFile(path.resolve('views','404.html'))
-});
+// Middleware para manejar el error 404
+app.use(handle404);
+
+// Middleware para manejar errores genéricos
+app.use(handleGenericError);
 
 // Definiendo puertos
 const port = 3000;
