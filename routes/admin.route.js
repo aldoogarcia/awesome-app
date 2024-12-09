@@ -10,12 +10,12 @@ const router = Router();
 // GET /add-product
 // Datos en memoria volatil
 export const products = [];
+
 // GET /admin/add-product
 router.get('/add-product', (req, res, next) => {
   // Servimos el formulario
   console.log("📢 Sirviendo formulario...");
-  console.log(`📢 ROOT_DIR: ${ROOT_DIR}`);
-  res.sendFile(path.join(ROOT_DIR, 'views','add-product.html'));
+  res.render('add-product');
 });
 
 // POST /add-product
